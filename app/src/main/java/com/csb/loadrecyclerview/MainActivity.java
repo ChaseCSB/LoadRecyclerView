@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onRefresh() {
                 mList.clear();
-                mAdapter.notifyDataSetChanged();
+                getData();
             }
         });
 
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 Message message = Message.obtain();
                 message.what = 1;
                 message.obj = list;
-                handler.sendMessage(message);
+                if (handler != null)handler.sendMessage(message);
 
             }
         }).start();
@@ -107,5 +107,11 @@ public class MainActivity extends AppCompatActivity {
         public MyHandler(Callback callback) {
             super(callback);
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        handler = null;
     }
 }
