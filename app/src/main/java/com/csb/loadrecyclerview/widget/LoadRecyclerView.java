@@ -2,16 +2,17 @@ package com.csb.loadrecyclerview.widget;
 
 
 import android.content.Context;
-import android.os.Build;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.AttributeSet;
 import android.view.View;
 
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+
 import com.csb.loadrecyclerview.adapter.BaseRecycleAdapter;
+
 
 public class LoadRecyclerView extends RecyclerView {
 
@@ -50,7 +51,7 @@ public class LoadRecyclerView extends RecyclerView {
             if (newState == SCROLL_STATE_IDLE && itemCount > 0 && lastVisibleItemPosition >= childCount - 1){
                 if (isBaseAdapter && ((BaseRecycleAdapter)getAdapter()).isCanLoad()){
                     onLoadListener.onLoad();
-                }else{
+                }else if (!isBaseAdapter){
                     onLoadListener.onLoad();
                 }
             }

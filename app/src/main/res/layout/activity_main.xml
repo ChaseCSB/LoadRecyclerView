@@ -6,9 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.csb.loadrecyclerview.widget.LoadRecyclerView
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/recyclerView"></com.csb.loadrecyclerview.widget.LoadRecyclerView>
+        android:id="@+id/srlRefresh"
+        android:layout_height="match_parent">
+        <com.csb.loadrecyclerview.widget.LoadRecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/recyclerView"></com.csb.loadrecyclerview.widget.LoadRecyclerView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
 </LinearLayout>
